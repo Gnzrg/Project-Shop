@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <LandingPage />
+      <h2>HI</h2>
     </div>
   );
 }
