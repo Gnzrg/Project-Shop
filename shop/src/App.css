@@ -1,0 +1,153 @@
+.top h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  /* or 83px */
+
+  text-align: center;
+
+  /* Text Color */
+
+  color: #151411;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  /* or 83px */
+
+  text-align: center;
+
+  /* Text Color */
+
+  color: #151411;
+}
+.top p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  text-align: center;
+
+  color: #afadb5;
+}
+.sec1btn {
+  background-color: #518581;
+  border: #518581;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+.section1 {
+  position: relative;
+}
+
+.sec2Top h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+
+  color: #ffb23f;
+}
+.left h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
+
+  /* Text Color */
+
+  color: #151411;
+}
+.right h5 {
+  font-family: "Eudoxus Sans";
+  font-style: bold;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  color: #afadb5;
+}
+.sec2Bot h4 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  /* or 31px */
+
+  /* Text Color */
+
+  color: #151411;
+}
+.sec2Bot h6 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
+@media (min-width: 1080px) {
+  .mid {
+    position: absolute;
+    z-index: 1;
+    top: 350px;
+  }
+}
+.sec3Title h5 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+
+  /* Secondary Color */
+
+  color: #ffb23f;
+}
+.sec3Title h3 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
+
+  /* Text Color */
+
+  color: #151411;
+}
+.sec3Title p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  text-align: center;
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
