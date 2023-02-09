@@ -151,61 +151,63 @@
 
   color: #afadb5;
 }
-.sec4Top h4{
-  font-family: 'Eudoxus Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 130%;
-/* or 23px */
+.sec4Top h4 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
 
+  /* Secondary Color */
 
-/* Secondary Color */
-
-color: #FFB23F;
-
+  color: #ffb23f;
 }
-.sec4Left h2{
-  font-family: 'Eudoxus Sans';
+.sec4Left h2 {
+  font-family: "Eudoxus Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 44px;
   line-height: 130%;
   /* or 57px */
-  
-  
-  /* Text Color */
-  
-  color: #151411;
-  
 
+  /* Text Color */
+
+  color: #151411;
 }
-.sec4Left p{
-  font-family: 'Eudoxus Sans';
+.sec4Left p {
+  font-family: "Eudoxus Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 180%;
   /* or 32px */
-  
-  
+
   /* Paragraph Color */
-  
-  color: #AFADB5;
-  
 
+  color: #afadb5;
 }
-.sec4Mid h2{
+.sec4Mid h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
 
+  /* Text Color */
 
-font-family: 'Eudoxus Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 44px;
-line-height: 130%;
-/* or 57px */
+  color: #151411;
+}
+.footerRight p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
 
+  /* Text Color */
 
-/* Text Color */
-
-color: #151411; }
+  color: #151411;
+}
