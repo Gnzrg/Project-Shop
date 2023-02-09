@@ -211,3 +211,31 @@
 
   color: #151411;
 }
+.sec4Right p {
+  font-family: 'Eudoxus Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  /* Paragraph Color */
+  
+  color: #AFADB5;
+  
+}
+.sec4Right button{
+  background: #518581;
+  color: #fff;
+  border:none;
+  padding: 5px 15px;
+}
+.rightTop{
+  height: 20%;
+}
+.rightbot{
+  height: 80%;
+}
+.rightbot img{
+  height: 100%;
+}
