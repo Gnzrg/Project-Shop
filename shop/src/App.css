@@ -239,3 +239,43 @@
 .rightbot img{
   height: 100%;
 }
+.sec5Top h6{
+  font-family: 'Eudoxus Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+  
+  
+  /* Secondary Color */
+  
+  color: #FFB23F;
+}
+.sec5Top h2{
+  font-family: 'Eudoxus Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 44px;
+line-height: 130%;
+/* or 57px */
+
+
+/* Text Color */
+
+color: #151411;
+}
+.sec5Top p{
+  font-family: 'Eudoxus Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 180%;
+/* or 32px */
+
+text-align: center;
+
+/* Paragraph Color */
+
+color: #AFADB5;
+}

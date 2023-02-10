@@ -4,6 +4,7 @@ import LandingSection1 from "../components/LandingSection1";
 import LandingSection2 from "../components/LandingSection2";
 import LandingSection3 from "../components/LandingSection3";
 import LandingSection4 from "../components/LandingSection4";
+import LandingSection5 from "../components/LandingSection5";
 import Footer from "../components/Footer";
 export default function LandingPage() {
   return (
@@ -13,6 +14,7 @@ export default function LandingPage() {
       <LandingSection2 />
       <LandingSection3 />
       <LandingSection4 />
+      <LandingSection5 />
       <Footer />
     </div>
   );
