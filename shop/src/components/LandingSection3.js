@@ -23,9 +23,14 @@ export default function LandingSection3() {
       <div className="container-fluid d-flex gap-3 overflow-auto">
         {proData.map((e) => {
           return (
-            <div className="card col-md-2 " style={{ height: "300px" }}>
-              <div className="card-head">
-                <img src={e.img} alt="" />
+            <div className="card col-md-2 " style={{ height: "420px" }}>
+              <div className="card-head" style={{ height: "50%" }}>
+                <img
+                  src={e.thumbImg}
+                  alt=""
+                  className="img-thumbnail img-fluid"
+                  style={{ height: "100%", width: "100%" }}
+                />
               </div>
               <div className="card-body pt-3">
                 <h6 className="text-secondary">{e.categoryName}</h6>
@@ -38,6 +43,10 @@ export default function LandingSection3() {
                   ) : (
                     <h6 className="text-danger">Not Trending</h6>
                   )}
+                </div>
+                <div className="d-flex justify-content-between ">
+                  <button className="btn btn-warning">Save</button>
+                  <button className="btn btn-success">Buy</button>
                 </div>
               </div>
             </div>

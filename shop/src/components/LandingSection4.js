@@ -13,7 +13,7 @@ export default function LandingSection4() {
             dignissim placerat nisi, adipiscing mauris non purus parturient.
             morbi fermentum, vivamus et accumsan dui tincidunt pulvinar
           </p>
-          <button>Learn More</button>
+          <button className="border rounded">Learn More</button>
           <img
             src={require("../images/sec4left.jpg")}
             alt=""

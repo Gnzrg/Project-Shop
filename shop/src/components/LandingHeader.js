@@ -34,10 +34,10 @@ export default function LandingHeader() {
           </ul>
         </div>
         <div className="icons col-md-4 ">
-          <button className="border border-white bg-white fs-3 me-3">
+          <button className="border border-light bg-light fs-3 me-3">
             <i class="bi bi-bag"></i>
           </button>
-          <button className="border border-white bg-white fs-3 ms-3">
+          <button className="border border-light bg-light fs-3 ms-3">
             <i class="bi bi-person"></i>
           </button>
         </div>

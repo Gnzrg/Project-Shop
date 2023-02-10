@@ -2,12 +2,19 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 export default function Footer() {
   const [data, setData] = useState([]);
+  const [brandData, setBrandData] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:8090/api/category")
       .then((res) => setData(res.data.result));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8090/api/brand")
+      .then((res) => setBrandData(res.data.result));
   }, []);
   console.log(data);
   return (
@@ -31,7 +38,16 @@ export default function Footer() {
           </div>
           <div className="col-md-4">
             <ul className="list-unstyled">
-              <li className="fw-bold">Services</li>
+              <li className="fw-bold pb-2">Brands</li>
+              {brandData.map((e) => {
+                return (
+                  <li className="pt-2">
+                    <NavLink className="text-decoration-none text-dark">
+                      {e.brandName}
+                    </NavLink>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="col-md-4">

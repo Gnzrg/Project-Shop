@@ -212,7 +212,7 @@
   color: #151411;
 }
 .sec4Right p {
-  font-family: 'Eudoxus Sans';
+  font-family: "Eudoxus Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -220,62 +220,136 @@
   /* or 32px */
 
   /* Paragraph Color */
-  
-  color: #AFADB5;
-  
+
+  color: #afadb5;
 }
-.sec4Right button{
+.sec4Right button {
   background: #518581;
   color: #fff;
-  border:none;
+  border: none;
   padding: 5px 15px;
 }
-.rightTop{
+.rightTop {
   height: 20%;
 }
-.rightbot{
+.rightbot {
   height: 80%;
 }
-.rightbot img{
+.rightbot img {
   height: 100%;
 }
-.sec5Top h6{
-  font-family: 'Eudoxus Sans';
+.sec5Top h6 {
+  font-family: "Eudoxus Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 130%;
   /* or 23px */
-  
-  
+
   /* Secondary Color */
-  
-  color: #FFB23F;
+
+  color: #ffb23f;
 }
-.sec5Top h2{
-  font-family: 'Eudoxus Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 44px;
-line-height: 130%;
-/* or 57px */
+.sec5Top h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
 
+  /* Text Color */
 
-/* Text Color */
-
-color: #151411;
+  color: #151411;
 }
-.sec5Top p{
-  font-family: 'Eudoxus Sans';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 180%;
-/* or 32px */
+.sec5Top p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
 
-text-align: center;
+  text-align: center;
 
-/* Paragraph Color */
+  /* Paragraph Color */
 
-color: #AFADB5;
+  color: #afadb5;
+}
+.sec6Top h5 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+
+  /* Secondary Color */
+
+  color: #ffb23f;
+}
+.sec6Top h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
+
+  /* Text Color */
+
+  color: #151411;
+}
+.sec6Left p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
+.sec6Bot h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 130%;
+  /* or 57px */
+
+  /* Text Color */
+
+  color: #151411;
+}
+.sec6Bot button {
+  background: #518581;
+  border: #518581;
+  height: 50px;
+}
+.sec6Card p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
+.sec6Card h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  /* or 31px */
+
+  /* Text Color */
+
+  color: #151411;
 }
