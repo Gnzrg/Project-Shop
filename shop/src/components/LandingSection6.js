@@ -14,7 +14,7 @@ export default function LandingSection6() {
       <div className="sec6Top d-flex container justify-content-start">
         <h5>Articles</h5>
       </div>
-      <div className="sec6Mid container d-flex gap-3">
+      <div className="sec6Mid container d-flex gap-5">
         <div className="sec6Left col-md-6">
           <h2 className="w-75 fw-bold">
             The best furniture comes from Lalasia

@@ -353,6 +353,60 @@
 
   color: #151411;
 }
-.sec6Mid{
+.sec6Mid {
   height: 760px;
+}
+.proSec1 h1 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  /* or 83px */
+
+  text-align: center;
+
+  /* Text Color */
+
+  color: #151411;
+}
+.proSec1 p {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  /* or 32px */
+
+  text-align: center;
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
+.card-body2 span {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+
+  /* Paragraph Color */
+
+  color: #afadb5;
+}
+.card-body2 h2 {
+  font-family: "Eudoxus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 130%;
+  /* identical to box height, or 34px */
+
+  letter-spacing: 0.01em;
+
+  /* Text Color */
+
+  color: #151411;
 }

@@ -11,29 +11,32 @@ export default function LandingHeader() {
       .get("http://localhost:8090/api/menu")
       .then((res) => setMenuData(res.data.result));
   }, []);
+  let styleObj = {
+    color: "paleturquoise",
+    textDecoration: "underline",
+  };
+  let styleObj1 = {
+    color: "black",
+    textDecoration: "none",
+  };
   return (
     <div className="container-fluid border-bottom py-2">
       <div className="row ">
-        <div className="logo col-md-2">
+        <div className="logo col-md-6">
           <img src={require("../images/Frame 1.png")} alt="" />
         </div>
-        <div className="col-md-6 d-flex">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="border rounded w-100 form-control"
-          />
-        </div>
-        <div className="col-md-4 d-flex justify-content-between">
+        <div className="col-md-6 d-flex justify-content-between">
           {" "}
-          <div className="nav col-md-4">
-            <ul className="list-unstyled d-flex gap-4 align-items-center pt-2">
+          <div className="nav col-md-6">
+            <ul className="list-unstyled d-flex gap-5 align-items-center pt-2">
               {menuData.map((e) => {
                 return (
                   <li>
                     <NavLink
                       to={e.link}
-                      className="text-decoration-none text-dark"
+                      style={({ isActive }) =>
+                        isActive ? styleObj : styleObj1
+                      }
                     >
                       {e.menuName}
                     </NavLink>
