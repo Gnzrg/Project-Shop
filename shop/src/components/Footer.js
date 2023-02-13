@@ -16,7 +16,7 @@ export default function Footer() {
       .get("http://localhost:8090/api/brand")
       .then((res) => setBrandData(res.data.result));
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <div className="container-fluid py-5">
       <div className="container border-top d-md-flex align-items-center pt-5 justify-content-between">

@@ -9,7 +9,7 @@ export default function LandingSection3() {
       .get("http://localhost:8090/api/products")
       .then((res) => setProData(res.data.result));
   }, []);
-  console.log(proData);
+  // console.log(proData);
   return (
     <div className="container-fluid pt-5">
       <div className="sec3Title container text-center w-50">
