@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect , useState } from 'react'
 import axios from "axios"
+import {Link} from "react-router-dom"
 export default function ProductSection2() {
     const [data , setData] = useState([]);
-
+    const [productId , setProductId] = useState("")
     const [search , setSearch] = useState("")
     useEffect(() => {
         axios.get("http://localhost:8090/api/products")
@@ -13,7 +14,7 @@ export default function ProductSection2() {
       console.log(e.target.value)
       setSearch(e.target.value);
       filterNews(e.target.value)
-      e.preventDefault()
+    
     }
 const filterNews = (searchParams) => {
   const newArr = data.filter((e) => {
@@ -21,14 +22,51 @@ const filterNews = (searchParams) => {
       return e.productName.toLowerCase().includes(searchParams.toLowerCase())
     }
   })
-  if(search === undefined){
+  if(search === ""){
     axios.get("http://localhost:8090/api/products")
     .then(res => setData(res.data.result))
   }else{
     setData(newArr)
   }
 }
+const handleSort = () => {
+let newArr = [...data]
+newArr.sort(function(a,b){
+  let x = a.productName.toLowerCase();
+  let y = b.productName.toLowerCase();
+  return x<y ? -1 : x>y ? 1 : 0;
 
+})
+setData(newArr)
+}
+const handleSort2 = () => {
+  let newArr = [...data]
+  newArr.sort(function(a,b){
+    let x = a.productName.toLowerCase();
+    let y = b.productName.toLowerCase();
+    return x > y ? -1 : y > x ? 1 : 0;
+  
+  })
+  setData(newArr)
+  }
+  const handleSort3 = () => {
+    let newArr = [...data]
+    newArr.sort(function(a ,b){
+      let x = a.price
+      let y = b.price
+      return x < y ? -1 : y > x ? 1 : 0
+    })
+  setData(newArr)
+  }
+  const handleSort4 = () => {
+    let newArr = [...data]
+    newArr.sort(function(a ,b){
+      let x = a.price
+      let y = b.price
+      return x > y ? -1 : y > x ? 1 : 0
+    })
+  setData(newArr)
+  }
   return (
     <div className='container-fluid'>
         <div className='container'>
@@ -42,8 +80,18 @@ const filterNews = (searchParams) => {
                <h2 className=''>Total Products </h2>
                <span className='bg-white px-2 border-secondary rounded text-primary'>{data.length}</span>
                </div>
-               <button className='btn-light border-white bg-light'><i class="bi bi-list-nested"></i><span className='ps-2'>Sort By</span></button>
-
+               <div>
+               <button className='btn-light border-white bg-light' data-bs-toggle="collapse" data-bs-target="#collapseExample" ><i class="bi bi-list-nested"></i><span className='ps-2'>Sort By</span></button>
+                <div className='collapse' id='collapseExample'>
+                  <ul className='list-unstyled bg-white'>
+                    <li className='w-100 border-white'><button className='bg-white border-white w-100' onClick={handleSort} >A-Z</button></li>
+                    <li className='w-100 border-white'><button className='bg-white border-white w-100' onClick={handleSort2} >Z-A</button></li>
+                    <li className='w-100'><button className='bg-white border-white w-100' onClick={handleSort3}>Price Up</button></li>
+                    <li className='w-100'><button className='bg-white border-white w-100' onClick={handleSort4}>Price Down</button></li>
+                   
+                  </ul>
+                </div>
+                </div>
             </div>
             <div className='d-flex flex-wrap justify-content-evenly gap-1'>
                 {data.map((e) => {
@@ -57,7 +105,11 @@ const filterNews = (searchParams) => {
                          <span>{e.categoryName}</span>
                          <h2>{e.productName}</h2>
                          <span >{e.description}</span>
+                         <div className='d-flex justify-content-between'>
                          <h2>{e.price}</h2>
+                         <button className='btn btn-warning text-white' onClick={() => setProductId(e.productId)}><Link to="/detail">Detail</Link></button>
+                         </div>
+                        
                        </div>
                       </div>
                      )
