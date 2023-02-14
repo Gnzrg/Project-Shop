@@ -1,6 +1,8 @@
 import React , {useState , useEffect} from 'react'
 import Header from '../components/header'
 import Footer from '../components/Footer'
+import LandingHeader
+ from '../components/LandingHeader'
 import { NavLink } from 'react-router-dom'
 import { useContext } from "react";
 import { Context } from "../contexts/UserContext";
@@ -41,7 +43,7 @@ export default function SignUp() {
 
   return (
     <div className='container-fluid pb-5'>
-    <Header/>
+  <Header/>
     <div className='pt-5 text-center'>
         <h2>Sign Up</h2>
     </div>

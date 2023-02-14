@@ -1,5 +1,6 @@
 import React , {useEffect , useState}from 'react'
 import Header from '../components/header'
+import LandingHeader from '../components/LandingHeader'
 import Footer from "../components/Footer"
 import axios from "axios"
 import { NavLink } from 'react-router-dom'
