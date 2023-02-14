@@ -4,11 +4,14 @@ import axios from "axios"
 import {Link} from "react-router-dom"
 export default function ProductSection2() {
     const [data , setData] = useState([]);
+    const [filteredData , setFilteredData] = useState([]);
     const [productId , setProductId] = useState("")
     const [search , setSearch] = useState("")
     useEffect(() => {
         axios.get("http://localhost:8090/api/products")
-        .then(res => setData(res.data.result))
+        .then(res =>  {
+          setData(res.data.result)
+          setFilteredData(res.data.result)})
     } , [])
     const onChangeText = (e) => {
       console.log(e.target.value)
@@ -22,50 +25,47 @@ const filterNews = (searchParams) => {
       return e.productName.toLowerCase().includes(searchParams.toLowerCase())
     }
   })
-  if(search === ""){
-    axios.get("http://localhost:8090/api/products")
-    .then(res => setData(res.data.result))
-  }else{
-    setData(newArr)
-  }
+
+    setFilteredData(newArr)
+
 }
 const handleSort = () => {
-let newArr = [...data]
+let newArr = [...filteredData]
 newArr.sort(function(a,b){
   let x = a.productName.toLowerCase();
   let y = b.productName.toLowerCase();
   return x<y ? -1 : x>y ? 1 : 0;
 
 })
-setData(newArr)
+setFilteredData(newArr)
 }
 const handleSort2 = () => {
-  let newArr = [...data]
+  let newArr = [...filteredData]
   newArr.sort(function(a,b){
     let x = a.productName.toLowerCase();
     let y = b.productName.toLowerCase();
     return x > y ? -1 : y > x ? 1 : 0;
   
   })
-  setData(newArr)
+  setFilteredData(newArr)
   }
   const handleSort3 = () => {
-    let newArr = [...data]
+    let newArr = [...filteredData]
     newArr.sort(function(a ,b){
       let x = a.price
       let y = b.price
       return x < y ? -1 : y > x ? 1 : 0
     })
-  setData(newArr)
+  setFilteredData(newArr)
   }
   const handleSort4 = () => {
-    let newArr = [...data]
+    let newArr = [...filteredData]
     newArr.sort(function(a ,b){
       let x = a.price
       let y = b.price
       return x > y ? -1 : y > x ? 1 : 0
     })
-  setData(newArr)
+  setFilteredData(newArr)
   }
   return (
     <div className='container-fluid'>
@@ -94,7 +94,7 @@ const handleSort2 = () => {
                 </div>
             </div>
             <div className='d-flex flex-wrap justify-content-evenly gap-1'>
-                {data.map((e) => {
+                {filteredData.map((e) => {
                   
                     return (
                       <div className='card mt-2 col-md-3'>
@@ -107,7 +107,7 @@ const handleSort2 = () => {
                          <span >{e.description}</span>
                          <div className='d-flex justify-content-between'>
                          <h2>{e.price}</h2>
-                         <button className='btn btn-warning text-white' onClick={() => setProductId(e.productId)}><Link to="/detail">Detail</Link></button>
+                         <button className='btn btn-white ' onClick={() => setProductId(e.productId)}><a href={`/detail/${productId}`} className="text-decoration-none text-dark">Detail<i class="bi bi-arrow-right"></i></a></button>
                          </div>
                         
                        </div>
