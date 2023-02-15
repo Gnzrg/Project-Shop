@@ -45,28 +45,18 @@ export default function Header({ setIsLogin }) {
               })}
             </ul>
           </div>
-          {localStorage.getItem("currentUser") == undefined ? (
-            <div className="icons col-md-4 ">
-              <button className="btn btn-success text-white">
-                <NavLink
-                  to="/signup"
-                  className="text-decoration-none text-white"
-                >
-                  Sign Up
-                </NavLink>
-              </button>
-              <button className="btn btn-info text-whte">
-                <NavLink
-                  to="/signin"
-                  className="text-decoration-none text-white"
-                >
-                  Sign In
-                </NavLink>
-              </button>
-            </div>
-          ) : (
-            <div>{localStorage.getItem("currentUser")?.name}</div>
-          )}
+          <div className="icons col-md-4 ">
+            <button className="btn btn-success text-white">
+              <NavLink to="/signup" className="text-decoration-none text-white">
+                Sign Up
+              </NavLink>
+            </button>
+            <button className="btn btn-info text-whte">
+              <NavLink to="/signin" className="text-decoration-none text-white">
+                Sign In
+              </NavLink>
+            </button>
+          </div>
         </div>
       </div>
     </div>

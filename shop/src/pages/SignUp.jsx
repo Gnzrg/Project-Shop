@@ -43,7 +43,7 @@ export default function SignUp() {
 
   return (
     <div className='container-fluid pb-5'>
-  <Header/>
+ {isLogin ? <LandingHeader/> :<Header />}
     <div className='pt-5 text-center'>
         <h2>Sign Up</h2>
     </div>

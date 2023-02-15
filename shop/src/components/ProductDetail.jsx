@@ -20,7 +20,7 @@ axios.get("http://localhost:8090/api/products").then(res => setData(res.data.res
             if(e.productId == id) {
             return(
               <div className='d-flex justify-content-between'>
-              <div className='col-md-6'>
+              <div className='col-md-6 border rounded'>
                 <img src={e.thumbImg} alt="" style={{width : "100%" , height : "100%"}}/>
               </div>
               <div className='col-md-5 pt-5'>
