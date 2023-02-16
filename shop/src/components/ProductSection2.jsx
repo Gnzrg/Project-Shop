@@ -1,13 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserLogContext } from "../contexts/LogUserContext";
 export default function ProductSection2() {
+  const {user , setUser} = useContext(UserLogContext)
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [productId, setProductId] = useState("");
   const [search, setSearch] = useState("");
   const [catData, setCatData] = useState([]);
+  const [userData , setUserData] = useState([])
   useEffect(() => {
     getData();
   }, []);
@@ -17,6 +20,9 @@ export default function ProductSection2() {
       setFilteredData(res.data.result);
     });
   };
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/user").then(res => setUserData(res.data.result))
+  },[])
   useEffect(() => {
     axios
       .get("http://localhost:8090/api/category")
@@ -82,23 +88,23 @@ export default function ProductSection2() {
     });
     setFilteredData(newArr);
   };
-  const handleChange = (id) => {
-    filteredData.map((e) => {
-      if (e.productId == id) {
-        let newObj = { ...e, isLiked: !e.isLiked };
+  // const handleChange = (id) => {
+  //   filteredData.map((e) => {
+  //     if (e.productId == id) {
+  //       let newObj = { ...e, isLiked: !e.isLiked };
 
-        fetch(`http://localhost:8090/api/products`, {
-          method: "PUT" /* or PATCH */,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newObj),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            getData();
-          });
-      }
-    });
-  };
+  //       fetch(`http://localhost:8090/api/products`, {
+  //         method: "PUT" /* or PATCH */,
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(newObj),
+  //       })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           getData();
+  //         });
+  //     }
+  //   });
+  // };
 
   return (
     <div className="container-fluid">
@@ -211,21 +217,30 @@ export default function ProductSection2() {
                   <span>{e.categoryName}</span>
                   <div className="d-flex justify-content-between">
                     <h2>{e.productName}</h2>
-                    {e.isLiked ? (
-                      <button
-                        className="text-danger bg-white border-white fs-4"
-                        onClick={() => handleChange(e.productId)}
-                      >
-                        <i class="bi bi-heart-fill"></i>
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleChange(e.productId)}
-                        className="bg-white border-white fs-4"
-                      >
-                        <i class="bi bi-heart"></i>
-                      </button>
-                    )}
+                   {userData.map((a) => {
+                    if(a.userId == user){                 
+                      a.likedItems.map((i) => {
+                        if(i == e.productId){
+                          return(
+                            <button
+                            className="text-danger bg-white border-white fs-4"
+                          >
+                            <i class="bi bi-heart-fill"></i>
+                          </button>
+                          )
+                        }else{
+                          return(
+                            <button
+                            className="bg-white border-white fs-4"
+                          >
+                            <i class="bi bi-heart"></i>
+                          </button>
+                          )
+                        }
+                      })
+                    }
+                   })}
+                  
                   </div>
 
                   <span>{e.description}</span>

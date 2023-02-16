@@ -6,12 +6,14 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../contexts/UserContext";
-
+import { UserLogContext } from "../contexts/LogUserContext";
 export default function SignIn() {
   const { isLogin, setIsLogin } = useContext(Context);
+  const {user , setUser} = useContext(UserLogContext)
   const [data, setData] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [id , setId ] = useState("")
   useEffect(() => {
     axios
       .get("http://localhost:8090/api/user")
@@ -21,7 +23,9 @@ export default function SignIn() {
     data.map((e) => {
       if (e.username == username && e.password == password) {
         setIsLogin(true);
-        localStorage.setItem("currentUser", JSON.stringify({ name: username }));
+        localStorage.setItem("currentUser", JSON.stringify({ name: e.username  , id : e.userId }));
+        setUser(e.userId)
+      
       }
     });
     if (JSON.parse(localStorage.getItem("currentUser"))?.name == username) {
@@ -30,7 +34,7 @@ export default function SignIn() {
       alert("username password buruu bn");
     }
   };
-
+  // console.log(user);
   return (
     <div className="container-fluid ">
       {isLogin ? <LandingHeader /> : <Header />}

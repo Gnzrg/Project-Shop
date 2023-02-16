@@ -6,8 +6,10 @@ import LandingHeader
 import { NavLink } from 'react-router-dom'
 import { useContext } from "react";
 import { Context } from "../contexts/UserContext";
+import { UserLogContext } from '../contexts/LogUserContext'
 export default function SignUp() {
   const { isLogin, setIsLogin } = useContext(Context);
+  const {user , setUser} = useContext(UserLogContext)
     const [firstName , setFirstName] = useState("")
     const [lastName , setlastName] = useState("")
     const [username , setUsername] = useState("")

@@ -7,23 +7,28 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import { useState } from "react";
 import { Context } from "./contexts/UserContext";
+import { UserLogContext } from "./contexts/LogUserContext";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState("");
+  console.log(user);
   return (
     <Context.Provider value={{ isLogin, setIsLogin }}>
-      <div className="App bg-light ">
-        <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route path="/products" element={<ProductPage />} />
-          <Route path="/detail/:id" element={<ProductDetail />} />
-          <Route path="/service" element={<ServicePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
-      </div>
+      <UserLogContext.Provider value={{ user, setUser }}>
+        <div className="App bg-light ">
+          <Routes>
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/detail/:id" element={<ProductDetail />} />
+            <Route path="/service" element={<ServicePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+          </Routes>
+        </div>
+      </UserLogContext.Provider>
     </Context.Provider>
   );
 }
