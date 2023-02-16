@@ -7,7 +7,7 @@ export default function ServicePage() {
   const { isLogin, setIsLogin } = useContext(Context);
   return (
     <div className="container-fluid">
-      {isLogin ? <LandingHeader /> : <Header />}
+      {localStorage.getItem("currentUser") ? <LandingHeader /> : <Header />}
     </div>
   );
 }

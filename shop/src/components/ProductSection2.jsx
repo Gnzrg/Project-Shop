@@ -4,14 +4,15 @@ import axios from "axios";
 import { useContext } from "react";
 import { UserLogContext } from "../contexts/LogUserContext";
 export default function ProductSection2() {
-  const {user , setUser} = useContext(UserLogContext)
+  const [user, setUser] = useState({});
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [productId, setProductId] = useState("");
+  const [productId1, setProductId1] = useState("");
   const [search, setSearch] = useState("");
   const [catData, setCatData] = useState([]);
-  const [userData , setUserData] = useState([])
+  const [userData, setUserData] = useState([]);
   useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("currentUserId")));
     getData();
   }, []);
   const getData = () => {
@@ -21,8 +22,14 @@ export default function ProductSection2() {
     });
   };
   useEffect(() => {
-    axios.get("http://localhost:8090/api/user").then(res => setUserData(res.data.result))
-  },[])
+    const us = JSON.parse(localStorage.getItem("currentUserId"));
+
+    console.log(us);
+    axios.get(`http://localhost:8090/api/user/${us?.id}`).then((res) => {
+      console.log(res.data.result);
+      setUserData(res.data.result);
+    });
+  }, []);
   useEffect(() => {
     axios
       .get("http://localhost:8090/api/category")
@@ -88,23 +95,33 @@ export default function ProductSection2() {
     });
     setFilteredData(newArr);
   };
-  // const handleChange = (id) => {
-  //   filteredData.map((e) => {
-  //     if (e.productId == id) {
-  //       let newObj = { ...e, isLiked: !e.isLiked };
-
-  //       fetch(`http://localhost:8090/api/products`, {
-  //         method: "PUT" /* or PATCH */,
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(newObj),
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           getData();
-  //         });
-  //     }
-  //   });
-  // };
+  const handleDelete = (id) => {
+    let newArr = userData.likedItems.filter((e) => e != id);
+    console.log(newArr);
+    let newObj = { ...userData, likedItems: newArr };
+    fetch(`http://localhost:8090/api/user/${user?.id}`, {
+      method: "PUT" /* or PATCH */,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newObj),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        getData();
+      });
+  };
+  const handleChange = (id) => {
+    let newArr = [...userData.likedItems];
+    newArr.push(id);
+    let newObj = { ...userData, likedItems: newArr };
+    console.log(newObj);
+    fetch(`http://localhost:8090/api/user/${user?.id}`, {
+      method: "PUT" /* or PATCH */,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newObj),
+    })
+      .then((res) => res.json())
+      .then((data) => getData());
+  };
 
   return (
     <div className="container-fluid">
@@ -217,30 +234,24 @@ export default function ProductSection2() {
                   <span>{e.categoryName}</span>
                   <div className="d-flex justify-content-between">
                     <h2>{e.productName}</h2>
-                   {userData.map((a) => {
-                    if(a.userId == user){                 
-                      a.likedItems.map((i) => {
-                        if(i == e.productId){
-                          return(
-                            <button
-                            className="text-danger bg-white border-white fs-4"
-                          >
-                            <i class="bi bi-heart-fill"></i>
-                          </button>
-                          )
-                        }else{
-                          return(
-                            <button
-                            className="bg-white border-white fs-4"
-                          >
-                            <i class="bi bi-heart"></i>
-                          </button>
-                          )
-                        }
-                      })
-                    }
-                   })}
-                  
+                    {console.log(userData)}
+
+                    {user?.id && userData?.likedItems?.includes(e.productId) ? (
+                      <button
+                        className="text-danger bg-white border-white fs-4"
+                        onClick={() => handleDelete(e.productId)}
+                      >
+                        {console.log("sas")}
+                        <i class="bi bi-heart-fill"></i>
+                      </button>
+                    ) : (
+                      <button
+                        className="bg-white border-white fs-4"
+                        onClick={() => handleChange(e.productId)}
+                      >
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    )}
                   </div>
 
                   <span>{e.description}</span>
@@ -248,10 +259,10 @@ export default function ProductSection2() {
                     <h2 className="text-success">${e.price}</h2>
                     <button
                       className="btn btn-white "
-                      onClick={() => setProductId(e.productId)}
+                      onClick={() => setProductId1(e.productId)}
                     >
                       <a
-                        href={`/detail/${productId}`}
+                        href={`/detail/${productId1}`}
                         className="text-decoration-none text-dark"
                       >
                         Detail<i class="bi bi-arrow-right"></i>

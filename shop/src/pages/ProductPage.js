@@ -10,7 +10,7 @@ export default function ProductPage() {
   const { isLogin, setIsLogin } = useContext(Context);
   return (
     <div className="bg-light container-fluid">
-      {isLogin ? <LandingHeader /> : <Header />}
+      {localStorage.getItem("currentUserId") ? <LandingHeader /> : <Header />}
       <ProductSection1 />
       <ProductSection2 />
       <Footer />

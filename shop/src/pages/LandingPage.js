@@ -14,7 +14,11 @@ export default function LandingPage() {
   const { isLogin, setIsLogin } = useContext(Context);
   return (
     <div className="container-fluid">
-      {isLogin ? <LandingHeader /> : <Header setIsLogin={setIsLogin} />}
+      {localStorage.getItem("currentUserId") ? (
+        <LandingHeader />
+      ) : (
+        <Header setIsLogin={setIsLogin} />
+      )}
 
       <LandingSection1 />
       <LandingSection2 />
