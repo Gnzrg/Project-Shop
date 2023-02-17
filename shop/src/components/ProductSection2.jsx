@@ -24,9 +24,7 @@ export default function ProductSection2() {
   useEffect(() => {
     const us = JSON.parse(localStorage.getItem("currentUserId"));
 
-    console.log(us);
     axios.get(`http://localhost:8090/api/user/${us?.id}`).then((res) => {
-      console.log(res.data.result);
       setUserData(res.data.result);
     });
   }, []);
@@ -36,7 +34,6 @@ export default function ProductSection2() {
       .then((res) => setCatData(res.data.result));
   }, []);
   const onChangeText = (e) => {
-    console.log(e.target.value);
     setSearch(e.target.value);
     filterNews(e.target.value);
   };
@@ -86,7 +83,6 @@ export default function ProductSection2() {
     setFilteredData(newArr);
   };
   const FilterCat = (name) => {
-    console.log(name);
     let newArr = [];
     data.map((e) => {
       if (name && e.categoryName.toLowerCase() == name.toLowerCase()) {
@@ -97,7 +93,6 @@ export default function ProductSection2() {
   };
   const handleDelete = (id) => {
     let newArr = userData.likedItems.filter((e) => e != id);
-    console.log(newArr);
     let newObj = { ...userData, likedItems: newArr };
     fetch(`http://localhost:8090/api/user/${user?.id}`, {
       method: "PUT" /* or PATCH */,
@@ -113,7 +108,6 @@ export default function ProductSection2() {
     let newArr = [...userData.likedItems];
     newArr.push(id);
     let newObj = { ...userData, likedItems: newArr };
-    console.log(newObj);
     fetch(`http://localhost:8090/api/user/${user?.id}`, {
       method: "PUT" /* or PATCH */,
       headers: { "Content-Type": "application/json" },

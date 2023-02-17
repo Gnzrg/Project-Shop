@@ -13,7 +13,6 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState("");
-  console.log(user);
   return (
     <Context.Provider value={{ isLogin, setIsLogin }}>
       <UserLogContext.Provider value={{ user, setUser }}>

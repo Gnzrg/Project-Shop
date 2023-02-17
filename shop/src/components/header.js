@@ -45,14 +45,20 @@ export default function Header({ setIsLogin }) {
               })}
             </ul>
           </div>
-          <div className="icons col-md-4 ">
+          <div className="icons col-md-4 d-flex justify-content-around align-items-center">
             <button className="btn btn-success text-white">
-              <NavLink to="/signup" className="text-decoration-none text-white">
+              <NavLink
+                to="/signup"
+                className="text-decoration-none text-white col-md-6"
+              >
                 Sign Up
               </NavLink>
             </button>
             <button className="btn btn-info text-whte">
-              <NavLink to="/signin" className="text-decoration-none text-white">
+              <NavLink
+                to="/signin"
+                className="text-decoration-none text-white col-md-6"
+              >
                 Sign In
               </NavLink>
             </button>
